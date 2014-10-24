@@ -6,7 +6,7 @@ galaxy_info:
   license: license (BSD)
   min_ansible_version: 1.8
   platforms:
-  - Arch Linux
+  - name: Arch Linux
   categories
   - monitoring
   - "cloud:ec2"
