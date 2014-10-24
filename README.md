@@ -12,7 +12,7 @@ Variables required:
 `aws_credential_file_dest`: location to install the AWS credential file on target instance  
 `alarm_recipients`: array of alarm actions  
 
-Example:
+Example group_vars/all file:
 ```
 cloudwatch_dir: /usr/local
 aws_credential_file_src: /usr/local/cloudwatch/awscreds
