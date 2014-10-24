@@ -2,7 +2,7 @@ ansible-cloudwatch-metrics
 ==========================
 
 This script uses Amazon's CloudWatch script to send metrics via systemd's service/timer.
-It requires AWS keys and 
+It requires AWS keys.
 
 Official guide: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/mon-scripts-perl.html
 
