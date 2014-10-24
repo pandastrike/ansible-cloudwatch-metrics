@@ -1,10 +1,12 @@
 ---
 galaxy_info:
-  author: "Peter Nguyen"
+  author: Peter Nguyen
+  description: Send ec2 instance metrics using systemd service/timer
   company: Panda Strike
   license: license (BSD)
-  min_ansible_version: 1.8 (or higher)
+  min_ansible_version: 1.8
   platforms:
-    - Arch Linux
-  categories: ["monitoring", "cloud:ec2"]
-dependencies: []
+  - Arch Linux
+  categories
+  - monitoring
+  - "cloud:ec2"
