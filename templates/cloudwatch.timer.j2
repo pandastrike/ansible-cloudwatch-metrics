@@ -1,0 +1,10 @@
+[Unit]
+Description=Runs cloudwatch every minute
+
+[Timer]
+OnBootSec=60
+OnUnitActiveSec=60
+Unit=cloudwatch.service
+
+[Install]
+WantedBy=multi-user.target

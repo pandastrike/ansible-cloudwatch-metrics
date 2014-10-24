@@ -1,0 +1,40 @@
+---
+- name: Install Perl modules
+  pacman: name=perl-switch,perl-sys-syslog,perl-lwp-protocol-https,unzip
+          state=installed
+
+- name: Create CloudWatch directory
+  command: mkdir -p {{cloudwatch_dir}}
+
+- name: Download CloudWatch script
+  command: "{{item}} chdir={{cloudwatch_dir}}"
+  with_items:
+    - curl -O http://ec2-downloads.s3.amazonaws.com/cloudwatch-samples/CloudWatchMonitoringScripts-v1.1.0.zip
+    - unzip -o CloudWatchMonitoringScripts-v1.1.0.zip
+    - rm CloudWatchMonitoringScripts-v1.1.0.zip
+
+- name: Configure CloudWatch AWS access keys
+  copy: src="{{aws_credential_file_src}}"
+        dest="{{aws_credential_file_dest}}"
+        owner=root
+        group=root
+        mode=0644
+
+- name: Upload the systemd CloudWatch service
+  template: src=cloudwatch.service.j2
+            dest=/usr/lib/systemd/system/cloudwatch.service
+            owner=root
+            group=root
+            mode=0644
+
+- name: Upload the systemd CloudWatch timer
+  template: src=cloudwatch.timer.j2
+            dest=/usr/lib/systemd/system/cloudwatch.timer
+            owner=root
+            group=root
+            mode=0644
+
+- name: Enable and start the systemd CloudWatch timer
+  service: name=cloudwatch.timer
+           enabled=yes
+           state=started

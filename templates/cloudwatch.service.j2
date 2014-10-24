@@ -1,0 +1,7 @@
+[Unit]
+Description=CloudWatch
+
+[Service]
+Type=simple
+User=root
+ExecStart={{cloudwatch_dir}}/aws-scripts-mon/mon-put-instance-data.pl --mem-util --swap-util --disk-space-util --disk-path=/ --aws-credential-file={{cloudwatch_dir}}/aws-scripts-mon/awscreds.template
