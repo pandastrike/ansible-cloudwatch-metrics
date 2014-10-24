@@ -19,5 +19,3 @@ aws_credential_file_src: /usr/local/cloudwatch/awscreds
 aws_credential_file_dest: "{{cloudwatch_dir}}/aws-scripts-mon/awscreds.template"
 alarm_recipients: ["arn:aws:sns:us-west-1:1234567890:Peter"]
 ```
-
-cloudwatch metric role for ansible galaxy
